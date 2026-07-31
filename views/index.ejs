@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Log</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Book Log</h1>
+    <a href="/add" class="button">Add Book</a>
+  </header>
+  <main>
+    <form method="get" action="/" class="sort-form">
+      <label for="sort">Sort by:</label>
+      <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="created_at" <%= sortBy === 'created_at' ? 'selected' : '' %>>Recently Added</option>
+        <option value="title" <%= sortBy === 'title' ? 'selected' : '' %>>Title</option>
+        <option value="author" <%= sortBy === 'author' ? 'selected' : '' %>>Author</option>
+        <option value="rating" <%= sortBy === 'rating' ? 'selected' : '' %>>Rating</option>
+      </select>
+    </form>
+
+    <% if (books.length === 0) { %>
+      <p>No books logged yet. <a href="/add">Add your first book</a>.</p>
+    <% } else { %>
+      <ul class="book-list">
+        <% books.forEach(book => { %>
+          <li class="book-card">
+            <div class="book-header">
+              <h2><%= book.title %></h2>
+              <span class="rating"><%= '★'.repeat(book.rating) %><%= '☆'.repeat(5 - book.rating) %></span>
+            </div>
+            <p class="author">by <%= book.author %></p>
+            <p class="review"><%= book.review || 'No review' %></p>
+            <form action="/books/<%= book.id %>/delete" method="post" class="delete-form">
+              <button type="submit" class="delete-button">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </main>
+</body>
+</html>
