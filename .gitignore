@@ -3,5 +3,5 @@ node_modules/
 .env
 dist/
 build/
-*.sqlite
-*.sqlite3
+playwright-report/
+test-results/

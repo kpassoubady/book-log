@@ -1,0 +1,22 @@
+{
+  "github.copilot.advanced": {
+    "hooks": {
+      "PreToolUse": [
+        {
+          "command": "bash .github/copilot/hooks/lint-before-commit.sh",
+          "matcher": "Bash(git commit*)"
+        },
+        {
+          "command": "bash .github/copilot/hooks/test-before-push.sh",
+          "matcher": "Bash(git push*)"
+        }
+      ],
+      "PostToolUse": [
+        {
+          "command": "bash .github/copilot/hooks/format-on-save.sh",
+          "matcher": "Edit|Write"
+        }
+      ]
+    }
+  }
+}

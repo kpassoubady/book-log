@@ -5,9 +5,17 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:install-browsers": "playwright install chromium"
   },
-  "keywords": ["books", "express", "sqlite"],
+  "keywords": [
+    "books",
+    "express",
+    "sqlite"
+  ],
   "license": "MIT",
   "dependencies": {
     "better-sqlite3": "^11.0.0",
@@ -15,6 +23,8 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
+    "@playwright/mcp": "^0.0.78",
+    "@playwright/test": "^1.62.1",
     "nodemon": "^3.1.4"
   }
 }
