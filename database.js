@@ -35,4 +35,16 @@ function deleteBook(id) {
   return stmt.run(id);
 }
 
-module.exports = { listBooks, addBook, deleteBook };
+function getBook(id) {
+  const stmt = db.prepare('SELECT * FROM books WHERE id = ?');
+  return stmt.get(id);
+}
+
+function updateBook(id, title, author, rating, review) {
+  const stmt = db.prepare(
+    'UPDATE books SET title = ?, author = ?, rating = ?, review = ? WHERE id = ?'
+  );
+  return stmt.run(title, author, rating, review || null, id);
+}
+
+module.exports = { listBooks, addBook, deleteBook, getBook, updateBook };

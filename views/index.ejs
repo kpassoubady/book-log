@@ -34,9 +34,12 @@
             </div>
             <p class="author">by <%= book.author %></p>
             <p class="review"><%= book.review || 'No review' %></p>
-            <form action="/books/<%= book.id %>/delete" method="post" class="delete-form">
-              <button type="submit" class="delete-button">Delete</button>
-            </form>
+            <div class="book-actions">
+              <a href="/books/<%= book.id %>/edit" class="button edit-button">Edit</a>
+              <form action="/books/<%= book.id %>/delete" method="post" class="delete-form">
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+            </div>
           </li>
         <% }) %>
       </ul>

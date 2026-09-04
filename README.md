@@ -83,7 +83,14 @@ Optional modes:
 
 ```bash
 npm run test:e2e:headed
+npm run test:e2e:slow
 npm run test:e2e:ui
+```
+
+To customize slow-motion delay (milliseconds):
+
+```bash
+PW_SLOW_MO=800 npm run test:e2e:headed
 ```
 
 MCP server config is in `.vscode/mcp.json` and uses `@playwright/mcp`.

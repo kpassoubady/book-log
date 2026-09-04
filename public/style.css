@@ -96,12 +96,31 @@ main {
   margin-bottom: 1rem;
 }
 
+.book-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .delete-form {
-  text-align: right;
+  display: inline;
+}
+
+.edit-button {
+  background: #28a745;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
+}
+
+.edit-button:hover {
+  background: #218838;
 }
 
 .delete-button {
   background: #cc3300;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
 }
 
 .delete-button:hover {

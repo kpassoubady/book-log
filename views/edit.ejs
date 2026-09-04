@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Book</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Edit a Book</h1>
+    <a href="/" class="button">Back to List</a>
+  </header>
+  <main>
+    <form action="/books/<%= book.id %>" method="post" class="book-form">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= book.title %>" required>
+
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author" value="<%= book.author %>" required>
+
+      <label for="rating">Rating</label>
+      <select id="rating" name="rating" required>
+        <option value="1" <%= book.rating === 1 ? 'selected' : '' %>>1</option>
+        <option value="2" <%= book.rating === 2 ? 'selected' : '' %>>2</option>
+        <option value="3" <%= book.rating === 3 ? 'selected' : '' %>>3</option>
+        <option value="4" <%= book.rating === 4 ? 'selected' : '' %>>4</option>
+        <option value="5" <%= book.rating === 5 ? 'selected' : '' %>>5</option>
+      </select>
+
+      <label for="review">Review</label>
+      <textarea id="review" name="review" rows="4"><%= book.review || '' %></textarea>
+
+      <button type="submit">Update Book</button>
+    </form>
+  </main>
+</body>
+</html>

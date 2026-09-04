@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { listBooks, addBook, deleteBook } = require('./database');
+const { listBooks, addBook, deleteBook, getBook, updateBook } = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +23,20 @@ app.get('/add', (req, res) => {
 app.post('/books', (req, res) => {
   const { title, author, rating, review } = req.body;
   addBook(title, author, parseInt(rating, 10), review);
+  res.redirect('/');
+});
+
+app.get('/books/:id/edit', (req, res) => {
+  const book = getBook(req.params.id);
+  if (!book) {
+    return res.redirect('/');
+  }
+  res.render('edit', { book });
+});
+
+app.post('/books/:id', (req, res) => {
+  const { title, author, rating, review } = req.body;
+  updateBook(req.params.id, title, author, parseInt(rating, 10), review);
   res.redirect('/');
 });
 

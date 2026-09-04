@@ -8,6 +8,7 @@
     "dev": "nodemon app.js",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
+    "test:e2e:slow": "PW_SLOW_MO=5000 playwright test --headed",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:install-browsers": "playwright install chromium"
   },

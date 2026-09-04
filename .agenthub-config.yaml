@@ -1,0 +1,25 @@
+project:
+  shape: full-stack
+  language: node
+  framework: express
+
+backend:
+  folders:
+    - .
+  test-command: "npm run test:e2e"
+  typecheck-command: "echo 'No TypeScript typecheck configured for this project'"
+  lint-command: "echo 'No lint step configured for this project'"
+
+frontend:
+  folders:
+    - views
+    - public
+  test-command: "npm run test:e2e"
+  typecheck-command: "echo 'No frontend typecheck configured for this project'"
+  lint-command: "echo 'No frontend lint step configured for this project'"
+
+test:
+  folders:
+    - tests/e2e
+  acceptance-framework: playwright
+  command: "npm run test:e2e"
